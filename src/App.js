@@ -87,7 +87,7 @@ const App = () => {
       element: <Layout />,
       children: [
         {
-          path: "/",
+          path: "portal-app/",
           element: <Home />,
         },
         {
