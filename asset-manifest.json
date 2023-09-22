@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portal-app/static/css/main.971f1ff8.css",
-    "main.js": "/portal-app/static/js/main.6f9a6f8f.js",
+    "main.js": "/portal-app/static/js/main.5ff2784e.js",
     "static/css/430.5fe937ad.chunk.css": "/portal-app/static/css/430.5fe937ad.chunk.css",
     "static/js/430.f5843092.chunk.js": "/portal-app/static/js/430.f5843092.chunk.js",
     "static/css/776.7b308676.chunk.css": "/portal-app/static/css/776.7b308676.chunk.css",
@@ -97,7 +97,7 @@
     "static/media/user2.jpg": "/portal-app/static/media/user2.8d4592405df4fc1e912f.jpg",
     "index.html": "/portal-app/index.html",
     "main.971f1ff8.css.map": "/portal-app/static/css/main.971f1ff8.css.map",
-    "main.6f9a6f8f.js.map": "/portal-app/static/js/main.6f9a6f8f.js.map",
+    "main.5ff2784e.js.map": "/portal-app/static/js/main.5ff2784e.js.map",
     "430.5fe937ad.chunk.css.map": "/portal-app/static/css/430.5fe937ad.chunk.css.map",
     "430.f5843092.chunk.js.map": "/portal-app/static/js/430.f5843092.chunk.js.map",
     "776.7b308676.chunk.css.map": "/portal-app/static/css/776.7b308676.chunk.css.map",
@@ -134,6 +134,6 @@
   },
   "entrypoints": [
     "static/css/main.971f1ff8.css",
-    "static/js/main.6f9a6f8f.js"
+    "static/js/main.5ff2784e.js"
   ]
 }
