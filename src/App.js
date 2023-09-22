@@ -83,7 +83,7 @@ const App = () => {
   // every link for pages
   const router = createBrowserRouter([
     {
-      path: "portal-app/",
+      path: "/portal-app/",
       element: <Layout />,
       children: [
         {
