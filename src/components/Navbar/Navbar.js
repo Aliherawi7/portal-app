@@ -6,7 +6,7 @@ import logo from "../../assets/img/logo.png"
 import lowIcon from "../../assets/img/faculties/low-icon.png"
 import dentistryIcon from "../../assets/img/faculties/dentistry-icon.png"
 import ICONS from "../../constants/Icons"
-
+import APIEndpoints from "../../constants/APIEndpoints"
 const CustomeLinks = ({ to, children, ...props }) => {
   const resolvedPath = useResolvedPath(to)
   const isActive = useMatch({ path: resolvedPath.pathname, end: true })
@@ -52,7 +52,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
         >
           <div className="add_img_profile display_flex">
             <img
-              src={authentication.imageUrl || "/public/img/favicon.png"}
+              src={authentication.imageUrl ? APIEndpoints.redirecter + authentication.imageUrl : "/public/img/favicon.png"}
               className="input_profile_img display_flex"
               alt="user_image"
             />

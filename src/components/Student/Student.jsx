@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "./Student.css"
+import APIEndpoints from "../../constants/APIEndpoints"
 
 const Student = ({ studentInfo, customRef }) => {
   return (
@@ -9,7 +10,7 @@ const Student = ({ studentInfo, customRef }) => {
         <div className="student_title_profile">
           <div className="student_profile_header"></div>
           <div className="student_profile_img display_flex align_items_center justify_content_center">
-            <img src={studentInfo?.imageUrl} />
+            <img src={APIEndpoints.redirecter + studentInfo?.imageUrl} />
           </div>
         </div>
 

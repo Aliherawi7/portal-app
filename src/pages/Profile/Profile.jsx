@@ -125,7 +125,7 @@ const Profile = () => {
             id != authentication?.userId) ||
             (authentication.roles.includes(Roles.STUDENT) &&
               id == authentication?.userId) ? (
-            <img src={student?.imageUrl} alt="user img" />
+            <img src={APIEndpoints.redirecter + student?.imageUrl} alt="user img" />
           ) : null}
 
           {(authentication.roles.includes(Roles.ADMIN) &&

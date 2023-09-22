@@ -40,7 +40,7 @@ const Post = ({
       <div className="image_header_container">
         <div className="post_header display_flex justify_content_space_between">
           <div className="post_share_with display_flex align_items_center">
-            <img src={author?.imageUrl} alt={author?.name} />
+            <img src={APIEndpoints.redirecter + author?.imageUrl} alt={author?.name} />
             <div className="post_date">
               <p>
                 {author?.name} {author?.lastname}
@@ -100,7 +100,7 @@ const Post = ({
         {/* For each item of image array render a post_file */}
         <div className="post_images">
           {images?.map((item) => {
-            return <img src={item} alt="" key={item} />
+            return <img src={APIEndpoints.redirecter + item} alt="" key={item} />
           })}
         </div>
         <div className="pdf_files_container">
@@ -118,7 +118,7 @@ const Post = ({
                   <button
                     className="btn_download display_flex cursor_pointer align_items_center justify_content_center"
                     type="button"
-                    onClick={() => downloadFileFromApi(doc)}
+                    onClick={() => downloadFileFromApi(APIEndpoints.redirecter + doc)}
                   >
                     <span className="button_download_text">دانلود</span>
                     <span className="button_download_icon display_flex align_items_center justify_content_center">

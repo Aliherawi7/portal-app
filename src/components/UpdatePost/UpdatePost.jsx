@@ -211,7 +211,7 @@ const UpdatePost = () => {
           {post?.images?.map((item) => {
             return (
               <div className="image_container" key={item}>
-                <img src={item} alt="" key={item} />
+                <img src={APIEndpoints.redirecter + item} alt="" key={item} />
                 <div className="btn_container_for_modal display_flex align_items_center justify_content_center">
                   <span title="پاک کردن">
                     <Button
@@ -225,7 +225,7 @@ const UpdatePost = () => {
                   <span title="دانلود">
                     <Button
                       icon={ICONS.download}
-                      onClick={() => downloadFileFromApi(item)}
+                      onClick={() => downloadFileFromApi(APIEndpoints.redirecter + item)}
                     />
                   </span>
                   <span title="صحفه بزرگ">

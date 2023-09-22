@@ -269,7 +269,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
       {/* Here you can select Profile Student img */}
       <div className="add_img_profile">
         <img
-          src={studentImage?.isOk ? studentImage.url : avatar}
+          src={studentImage?.isOk ? APIEndpoints.redirecter + studentImage.url : avatar}
           className="input_profile_img"
           alt="user_image"
         />
@@ -332,9 +332,8 @@ export const PersonalInformation = ({ updatedMode = false }) => {
         </section>
 
         <section
-          className={`build_boxes ${
-            updatedMode ? "build_boxes" : "build_boxes_three_boxes"
-          }`}
+          className={`build_boxes ${updatedMode ? "build_boxes" : "build_boxes_three_boxes"
+            }`}
         >
           <div className="build_box">
             <label>زبـان مــادری</label>
