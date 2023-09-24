@@ -183,7 +183,7 @@ const UpdatePost = () => {
       <div className="image_header_container">
         <div className="post_header display_flex align_items_center justify_content_space_between">
           <div className="post_share_with display_flex align_items_center">
-            <img src={post?.author?.imageUrl} alt={post?.author?.name} />
+            <img src={post?.author?.imageUrl} alt={post?.author?.name} crossorigin="anonymous" />
             <p>
               {post?.author?.name} {post?.author?.lastname}
             </p>
@@ -211,7 +211,7 @@ const UpdatePost = () => {
           {post?.images?.map((item) => {
             return (
               <div className="image_container" key={item}>
-                <img src={APIEndpoints.redirecter + item} alt="" key={item} />
+                <img src={APIEndpoints.redirecter + item} alt="" key={item} crossorigin="anonymous" />
                 <div className="btn_container_for_modal display_flex align_items_center justify_content_center">
                   <span title="پاک کردن">
                     <Button
