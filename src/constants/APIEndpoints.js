@@ -1,6 +1,6 @@
 const APIEndpoints = {
   redirecter: "https://cors-anywhere.herokuapp.com/",
-  root: "https://cors-anywhere.herokuapp.com/http://18.144.170.85/:5000/api/v1/",
+  root: "https://cors-anywhere.herokuapp.com/http://18.144.170.85:5000/api/v1/",
   students: {
     getAll: "students/?",
     addStudent: "students",
