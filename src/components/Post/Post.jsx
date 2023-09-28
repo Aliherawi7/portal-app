@@ -40,7 +40,7 @@ const Post = ({
       <div className="image_header_container">
         <div className="post_header display_flex justify_content_space_between">
           <div className="post_share_with display_flex align_items_center">
-            <img src={APIEndpoints.redirecter + author?.imageUrl} alt={author?.name} crossorigin="anonymous" />
+            <img src={APIEndpoints.redirecter + author?.imageUrl} alt={author?.name} crossOrigin="anonymous" />
             <div className="post_date">
               <p>
                 {author?.name} {author?.lastname}

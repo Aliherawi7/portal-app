@@ -272,7 +272,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           src={studentImage?.isOk ? APIEndpoints.redirecter + studentImage.url : avatar}
           className="input_profile_img"
           alt="user_image"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <span className="upload_icon display_flex align_items_center justify_content_center cursor_pointer">
           <i className={ICONS.camera}></i>

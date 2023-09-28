@@ -10,7 +10,7 @@ const Student = ({ studentInfo, customRef }) => {
         <div className="student_title_profile">
           <div className="student_profile_header"></div>
           <div className="student_profile_img display_flex align_items_center justify_content_center">
-            <img src={APIEndpoints.redirecter + studentInfo?.imageUrl} crossorigin="anonymous" alt={studentInfo?.id} />
+            <img src={APIEndpoints.redirecter + studentInfo?.imageUrl} crossOrigin="anonymous" alt={studentInfo?.id} />
           </div>
         </div>
 

@@ -55,7 +55,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
               src={authentication.imageUrl ? APIEndpoints.redirecter + authentication.imageUrl : "/public/img/favicon.png"}
               className="input_profile_img display_flex"
               alt="user_image"
-              crossorigin="anonymous"
+              crossOrigin="anonymous"
             />
           </div>
           <h4 className="text_color">

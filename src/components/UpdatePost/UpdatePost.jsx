@@ -211,7 +211,7 @@ const UpdatePost = () => {
           {post?.images?.map((item) => {
             return (
               <div className="image_container" key={item}>
-                <img src={APIEndpoints.redirecter + item} alt="" key={item} crossorigin="anonymous" />
+                <img src={APIEndpoints.redirecter + item} alt="" key={item} crossOrigin="anonymous" />
                 <div className="btn_container_for_modal display_flex align_items_center justify_content_center">
                   <span title="پاک کردن">
                     <Button
