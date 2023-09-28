@@ -11,7 +11,7 @@ env:
   ECS_CLUSTER: portal-api-v2-cluster                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: portal-app-docker-image # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: portal-app          # set this to the name of the container in the
+  CONTAINER_NAME: portal_app_ecr          # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
 permissions:
