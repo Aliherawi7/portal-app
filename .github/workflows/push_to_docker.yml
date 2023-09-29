@@ -1,0 +1,18 @@
+name: Dockerize react applicaiton
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  build-container:
+    name: build docker container image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push to dockerhub
+        uses: docker/build-push-action@v1
+        with: 
+          username: ${{ secrets.DOCKER_USENAME }}
+          passwrod: ${{ secrets.DOCKER_USENAME }}
+          repository: aliherawi7/portal-app
+          tags: latest, ${{ github.run_number}}
+          
+      
