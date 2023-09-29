@@ -7,6 +7,16 @@ jobs:
     name: build docker container image
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Push to github packges
+        uses: docker/build-push-action@v1
+        with: 
+          username: ${{ github.actor }}
+          passwrod: ${{ secrets.GITHUB_TOKEN }}
+          registery: docker.pkg.github.com
+          repository: ${{ github.reposiroty }}/portal-app
+          tags: latest, ${{ github.run_number}}
       - name: Push to dockerhub
         uses: docker/build-push-action@v1
         with: 
