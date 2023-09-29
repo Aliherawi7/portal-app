@@ -20,8 +20,8 @@ jobs:
       - name: Push to dockerhub
         uses: docker/build-push-action@v1
         with: 
-          username: ${{ secrets.DOCKER_USENAME }}
-          password: ${{ secrets.DOCKER_USENAME }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
           repository: aliherawi7/portal-app
           tags: latest, ${{ github.run_number}}
           
