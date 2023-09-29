@@ -13,7 +13,7 @@ jobs:
         uses: docker/build-push-action@v1
         with: 
           username: ${{ github.actor }}
-          passwrod: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
           registery: docker.pkg.github.com
           repository: ${{ github.reposiroty }}/portal-app
           tags: latest, ${{ github.run_number}}
@@ -21,7 +21,7 @@ jobs:
         uses: docker/build-push-action@v1
         with: 
           username: ${{ secrets.DOCKER_USENAME }}
-          passwrod: ${{ secrets.DOCKER_USENAME }}
+          password: ${{ secrets.DOCKER_USENAME }}
           repository: aliherawi7/portal-app
           tags: latest, ${{ github.run_number}}
           
