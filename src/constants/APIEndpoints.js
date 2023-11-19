@@ -1,6 +1,6 @@
 const APIEndpoints = {
   redirecter: "",
-  root: "http://18.144.170.85:5000/api/v1/",
+  root: "http://localhost:5000/api/v1/",
   students: {
     getAll: "students/?",
     addStudent: "students",
