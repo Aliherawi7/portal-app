@@ -1,3 +1,6 @@
+import i18n from "../locale/locale"
+
+
 function getAuthInfoFromLocalStorage() {
   if (localStorage.length > 0) {
     return {
@@ -18,15 +21,16 @@ export const initialState = {
   authentication: getAuthInfoFromLocalStorage()
     ? getAuthInfoFromLocalStorage()
     : {
-        isAuthenticated: false,
-        name: null,
-        lastName: null,
-        email: null,
-        token: null,
-        userId: null,
-        profileImage: null,
-        roles: [],
-      },
+      isAuthenticated: false,
+      name: null,
+      lastName: null,
+      email: null,
+      token: null,
+      userId: null,
+      profileImage: null,
+      roles: [],
+    },
+  locale: "fa",
 }
 
 export const actionTypes = {
@@ -39,6 +43,7 @@ export const actionTypes = {
   ADD_STUDENT_IMAGE: "ADD_STUDENT_IMAGE",
   LOGOUT: "LOGOUT",
   REMOVE_STUDENT_REGISTERATION_STATE: "REMOVE_STUDENT_REGISTERATION_STATE",
+  CHANGE_LOCALE: 'CHANGE_LOCALE',
 }
 
 const reducer = (state, action) => {
@@ -103,6 +108,20 @@ const reducer = (state, action) => {
         studentImage: {},
         studentRelations: {},
         studentPersonalInfo: {},
+      }
+    case actionTypes.CHANGE_LOCALE:
+      i18n.changeLanguage(action.payload.lang)
+      if (action.payload.lang === "fa") {
+        document.body.classList.remove("ltr")
+        document.body.classList.toggle("rtl")
+      } else if (action.payload.lang === "en") {
+        document.body.classList.remove("rtl")
+        document.body.classList.toggle("ltr")
+      }
+
+      return {
+        ...state,
+        locale: action.payload.lang
       }
     default:
       return state

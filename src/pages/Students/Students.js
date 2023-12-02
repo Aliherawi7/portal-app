@@ -10,6 +10,7 @@ import APIEndpoints from "../../constants/APIEndpoints"
 import Spinner from "../../components/UI/Loading/Spinner"
 import Button from "../../components/UI/Button/Button"
 import { actionTypes } from "../../context/reducer"
+import { t } from "i18next"
 
 const Students = () => {
   useProtect({ roles: [Roles.ADMIN] })
@@ -45,8 +46,8 @@ const Students = () => {
 
     fetch(
       APIEndpoints.root +
-        APIEndpoints.students.getAll +
-        `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
+      APIEndpoints.students.getAll +
+      `offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
       {
         method: "GET",
         headers: {
@@ -79,9 +80,9 @@ const Students = () => {
         if (hasMore && !loading && page.totalPages >= pagination.offset) {
           fetch(
             APIEndpoints.root +
-              APIEndpoints.students.getAll +
-              `offset=${pagination.offset}&pageSize=${pagination.pageSize}` +
-              requestParams,
+            APIEndpoints.students.getAll +
+            `offset=${pagination.offset}&pageSize=${pagination.pageSize}` +
+            requestParams,
             {
               method: "GET",
               headers: {
@@ -170,9 +171,9 @@ const Students = () => {
     setRequestParams(url)
     fetch(
       APIEndpoints.root +
-        APIEndpoints.students.getAll +
-        `offset=0&pageSize=${pagination.pageSize}` +
-        url,
+      APIEndpoints.students.getAll +
+      `offset=0&pageSize=${pagination.pageSize}` +
+      url,
       {
         method: "GET",
         headers: {
@@ -199,7 +200,7 @@ const Students = () => {
       {/* add new student */}
       <div className="students_add_new_student display_flex align_items_center justify_content_space_between">
         <Button
-          text={"محصل جدید"}
+          text={t("newStudent")}
           onClick={() => {
             navigate("/admin/add-student")
             dispatch({
@@ -207,54 +208,49 @@ const Students = () => {
             })
           }}
         />
-        <Button
-          text="محتوای جدید"
-          onClick={() => {
-            navigate("/admin/newpost")
-          }}
-        />
+
       </div>
 
       {/* some button for filtering */}
       <div className="students_filter_btn display_flex align_items_center justify_content_center">
         <div className="posts_management_boxes">
           <div className="post_mana_box">
-            <label>پوهنحی</label>
+            <label>{t("fieldOfStudy")}</label>
             <select
               id="type"
               value={feildOfStudy}
-              defaultValue={"همه"}
+              defaultValue={t("all")}
               onChange={(e) => setfield(e)}
             >
-              <option>همه</option>
+              <option>{t("all")}</option>
               {fields?.map((item) => {
                 return <option key={item.id}>{item.fieldName}</option>
               })}
             </select>
           </div>
           <div className="post_mana_box">
-            <label>دیپارتمنت</label>
+            <label>{t("department")}</label>
             <select
               id="type"
               value={department}
-              defaultValue={"همه"}
+              defaultValue={t("all")}
               onChange={(e) => setDep(e.target.value)}
             >
-              <option>همه</option>
+              <option>{t("all")}</option>
               {departments?.map((item) => {
                 return <option key={item.id}>{item.departmentName}</option>
               })}
             </select>
           </div>
           <div className="post_mana_box">
-            <label>سمستر</label>
+            <label>{t("semester")}</label>
             <select
               id="type"
               value={semester}
-              defaultValue={"همه"}
+              defaultValue={t("all")}
               onChange={(e) => setsemester(e.target.value)}
             >
-              <option>همه</option>
+              <option>{t("all")}</option>
               {semesters.map((item) => {
                 return <option key={item}>{item}</option>
               })}
@@ -265,7 +261,7 @@ const Students = () => {
           value={searchKeyword}
           onChange={(e) => setSearchKeyword(e.target.value)}
           handleSearchButton={handleSearchButton}
-          placeHolder="جستجوی محصل..."
+          placeHolder={t("studentSearch")}
         />
       </div>
 
@@ -287,13 +283,13 @@ const Students = () => {
           {hasMore && <Spinner />}
           {!hasMore && students.length > 0 && (
             <>
-              <h5>آخرین محصل</h5>
+              <h5>{t("lastStudent")}</h5>
               <h6 style={{ paddingTop: "10px" }}>
-                تعداد کل محصلین {students.length}
+                {t("totalStudent")}: {students.length}
               </h6>
             </>
           )}
-          {!hasMore && students.length == 0 && <h5>محصل یافت نشد!</h5>}
+          {!hasMore && students.length == 0 && <h5>{t("studentNotFound")}</h5>}
         </section>
       </div>
     </div>

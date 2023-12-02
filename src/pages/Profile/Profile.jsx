@@ -12,6 +12,7 @@ import BtnTypes from "../../constants/BtnTypes"
 import APIEndpoints from "../../constants/APIEndpoints"
 import Button from "../../components/UI/Button/Button"
 import ButtonLoading from "../../components/UI/Loading/ButtonLoading"
+import { t } from "i18next"
 
 const Profile = () => {
   const { id } = useParams()
@@ -146,12 +147,12 @@ const Profile = () => {
                 <Button
                   icon={ICONS.trash}
                   onClick={() => setremoveModal(true)}
-                  text={"حذف کردن"}
+                  text={t("delete")}
                 />
                 <Button
                   icon={student?.isEnable ? ICONS.lockFill : ICONS.unlock}
                   onClick={() => setlockOrUnlockModal(true)}
-                  text={student?.isEnable ? "غیرفعال سازی" : "فعال سازی"}
+                  text={student?.isEnable ? t("disable") : t("enable")}
                 />
               </div>
             )}
@@ -159,19 +160,19 @@ const Profile = () => {
           <Button
             icon={ICONS.square}
             onClick={() => navigate("/reset-password/" + id)}
-            text={"تغییر رمز یا ایمیل"}
+            text={t('changeEmailOrPassword')}
           />
           {authentication.roles.includes(Roles.ADMIN) &&
             authentication.userId != id && (
               <Button
                 icon={ICONS.edit}
-                text={"بروزرسانی اطلاعات"}
+                text={t("updateInformation")}
                 onClick={() => navigate("/admin/update-student/" + id)}
               />
             )}
           <Button
             icon={ICONS.logout}
-            text={"خروج از حساب کاربری"}
+            text={t("logout")}
             onClick={showModalHandler}
           />
         </div>
@@ -185,18 +186,18 @@ const Profile = () => {
             <MessageBox
               messageType="asking"
               firstBtn={{
-                btnText: "بلی",
+                btnText: t("yes"),
                 btnType: BtnTypes.danger,
                 onClick: lockOrUnlockStudentAccount,
               }}
               secondBtn={{
-                btnText: "نخیر",
+                btnText: t("no"),
                 onClick: () => setlockOrUnlockModal(false),
               }}
               message={
                 student?.isEnable
-                  ? "برای غیرفعال سازی پروفایل محصل مطمین هستید؟"
-                  : "برای فعال سازی پروفایل محصل مطمین هستید؟"
+                  ? t("disableMessage")
+                  : t("enableMessage")
               }
               iconType={ICONS.asking}
             />
@@ -209,15 +210,15 @@ const Profile = () => {
             <MessageBox
               messageType="asking"
               firstBtn={{
-                btnText: "بلی",
+                btnText: t("yes"),
                 btnType: BtnTypes.danger,
                 onClick: removeStudent,
               }}
               secondBtn={{
-                btnText: "نخیر",
+                btnText: t("no"),
                 onClick: () => setremoveModal(false),
               }}
-              message={"برای حذف کردن محصل از سیستم مطمین هستید؟"}
+              message={t("deleteStudentMessage")}
               iconType={ICONS.asking}
             />
           }
@@ -229,12 +230,12 @@ const Profile = () => {
             <MessageBox
               messageType="asking"
               firstBtn={{
-                btnText: "بلی",
+                btnText: t("yes"),
                 btnType: BtnTypes.danger,
                 onClick: logout,
               }}
-              secondBtn={{ btnText: "نخیر", onClick: modalCloseHandler }}
-              message={"برای بیرون شدن از سیستم مطمین هستید؟"}
+              secondBtn={{ btnText: t("no"), onClick: modalCloseHandler }}
+              message={t("logoutMessage")}
               iconType={ICONS.asking}
             />
           }
@@ -251,39 +252,39 @@ const Profile = () => {
             <div className="content">
               <div className="content_boxes display_grid ">
                 <div className="content_box">
-                  <label>نـام</label>
+                  <label>{t("name")}</label>
                   <p>{student?.studentPersonalInfo?.name}</p>
                 </div>
                 <div className="content_box">
-                  <label>تـخـلـص</label>
+                  <label>{t("lastName")}</label>
                   <p>{student?.studentPersonalInfo?.lastName}</p>
                 </div>
                 <div className="content_box">
-                  <label>نـام پـدر</label>
+                  <label>{t("fatherName")}</label>
                   <p>{student?.studentPersonalInfo?.fatherName}</p>
                 </div>
                 <div className="content_box">
-                  <label>شـمـاره تـمـاس</label>
+                  <label>{t("contactNumber")}</label>
                   <p>{student?.studentPersonalInfo?.phoneNumber}</p>
                 </div>
                 <div className="content_box">
-                  <label>سـال شـمـولـیت</label>
+                  <label>{t("inclusionYear")}</label>
                   <p>{student?.studentPersonalInfo?.joinedDate}</p>
                 </div>
                 <div className="content_box">
-                  <label>دیـپارتمـنت</label>
+                  <label>{t("department")}</label>
                   <p>{student?.studentPersonalInfo?.department}</p>
                 </div>
                 <div className="content_box">
-                  <label>سـال</label>
+                  <label>{t("year")}</label>
                   <p>{student?.studentPersonalInfo?.year}</p>
                 </div>
                 <div className="content_box">
-                  <label>سـمـستر</label>
+                  <label>{t("semester")}</label>
                   <p>{student?.studentPersonalInfo?.semester}</p>
                 </div>
                 <div className="content_box profile_full_box">
-                  <label>ایـمـیل</label>
+                  <label>{t("email")}</label>
                   <p>{student?.studentPersonalInfo?.email}</p>
                 </div>
               </div>
@@ -295,7 +296,7 @@ const Profile = () => {
         <MessageBox
           messageType="info"
           firstBtn={{
-            btnText: "تایید",
+            btnText: t("confirm"),
             onClick: responseModal.onClick,
           }}
           message={responseModal.msg}

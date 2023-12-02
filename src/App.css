@@ -58,7 +58,6 @@
   left: 30%;
   height: 200px;
   width: 200px;
-  /* border-radius: 70px; */
   transform: rotate(40deg);
   background-color: #4caf507a;
   z-index: -1;
@@ -66,7 +65,6 @@
 }
 
 .app .main {
-  margin: 0px 220px 0px 25px;
   box-sizing: border-box;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
@@ -74,12 +72,18 @@
   height: 100vh;
 }
 
-.app .main_active_nav {
-  margin: 0 100px 0 15px;
-}
 
 .search__icon {
   color: gray;
+}
+
+#viewport {
+  display: flex;
+}
+
+#navbar_container {
+  height: calc(100vh - 55px);
+  position: relative;
 }
 
 /* Post Management Tab Header */
@@ -92,6 +96,8 @@
   flex-wrap: wrap;
   gap: 8px;
 }
+
+
 
 .posts_management_boxes .post_mana_box {
   width: 180px;
@@ -131,95 +137,6 @@
   width: 130px;
 }
 
-/* Tab Header */
-.tab_header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  background: var(--gen-bg-color);
-  z-index: 0;
-  border-radius: 10px;
-  box-shadow: 0px 7px 25px rgba(0, 0, 0, 0.08);
-}
-
-.tab_header ul {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  text-align: center;
-}
-
-.tab_header ul li {
-  padding: 8px 10px;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-
-.tab_header ul li:hover,
-.tab_header ul .active_tab {
-  border-top-color: var(--gen-color);
-}
-
-.tab_header ul li span {
-  font-size: 15px;
-  line-height: 1em;
-  color: var(--text-color);
-}
-
-.tab_header_display {
-  display: none;
-  margin: 1rem;
-  padding: 1rem;
-  border: 1px solid var(--gen-color);
-  border-radius: 3px;
-}
-
-.tab_header_display.active_content {
-  display: block;
-}
-
-.profile_tab_header {
-  border-top-right-radius: 0px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-/* End of Tab Header */
-
-/* Departement Reference Table */
-.dep_reference_table .table_row {
-  display: table;
-  width: 100%;
-  padding: 8px 0;
-  border: 1px solid var(--gen-color);
-  margin: 10px 0;
-  border-radius: 6px;
-}
-
-.dep_reference_table .table_header {
-  border: none;
-}
-
-.dep_reference_table .table_header p {
-  font-weight: bold;
-}
-
-.dep_reference_table .table_row p {
-  color: var(--text-color);
-  font-size: 16px;
-}
-
-.dep_reference_table .table_cell {
-  display: table-cell;
-  text-align: center;
-  width: 30%;
-  vertical-align: middle;
-}
-
-/* End of Departement Reference Table */
 
 /* Profile iamge  */
 .add_img_profile {
@@ -359,20 +276,6 @@
 
 /* Responsive */
 @media (max-width: 991px) {
-  .app .main {
-    margin: 0 100px 0 10px;
-  }
-
-  .add_img_profile {
-    width: 120px;
-    height: 120px;
-  }
-
-  .add_img_profile .input_profile_img {
-    width: 120px;
-    height: 120px;
-    border: 3px solid;
-  }
 
   /* Add Form Students Responsive  */
   .form_details_student .build_boxes {
@@ -382,85 +285,9 @@
 }
 
 @media (max-width: 768px) {
-  .app .main {
-    margin: 0px 70px 0px 10px;
-  }
-
-  .tab_header_display {
-    margin: 1rem 8px;
-    padding: 1rem 10px;
-  }
-
-  .add_img_profile {
-    width: 110px;
-    height: 110px;
-  }
-
-  .add_img_profile .input_profile_img {
-    width: 110px;
-    height: 110px;
-    border: 3px solid;
-  }
 
   /* Add Form Students Responsive  */
   .form_details_student .build_boxes {
     margin: 1rem 0;
-  }
-
-  /* Faculties Secitons Title */
-  .faculties_sections_title {
-    margin-top: 5rem;
-  }
-
-  .faculties_sections_title h2 {
-    font-size: 27px;
-  }
-}
-
-@media (max-width: 695px) {
-  .form_details_student .build_boxes.build_boxes_three_boxes {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .app .main {
-    margin: 0px 60px 0px 10px;
-  }
-
-  .tab_header_display {
-    margin: 10px 4px;
-    padding: 10px 5px;
-  }
-
-  .add_img_profile {
-    width: 100px;
-    height: 100px;
-  }
-
-  .add_img_profile .input_profile_img {
-    width: 100px;
-    height: 100px;
-    border: 3px solid;
-  }
-
-  /* Add Form Students Responsive  */
-  .form_details_student .build_boxes {
-    grid-template-columns: 1fr;
-    grid-row-gap: 1.2rem;
-  }
-
-  .faculties_sections_title h2 {
-    font-size: 23px;
-  }
-}
-
-@media (max-width: 375px) {
-  .app .main {
-    margin: 0px 50px 0px 10px;
-  }
-
-  .faculties_sections_title h2 {
-    font-size: 20px;
   }
 }

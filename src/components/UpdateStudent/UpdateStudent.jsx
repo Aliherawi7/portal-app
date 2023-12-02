@@ -8,6 +8,7 @@ import { PersonalInformation } from "../Steps/PersonalInformation"
 import { StudentHabitation } from "../Steps/StudentHabitation"
 import { actionTypes } from "../../context/reducer"
 import Button from "../UI/Button/Button"
+import { t } from "i18next"
 
 const UpdateStudent = ({ setApiResponse }) => {
   useProtect({ roles: [Roles.ADMIN] })
@@ -47,13 +48,13 @@ const UpdateStudent = ({ setApiResponse }) => {
         })
         let studentRelations = {}
         data.relatives.forEach((item) => {
-          if (item.relationship == "پدر") {
+          if (item.relationship == t("father")) {
             studentRelations = { ...studentRelations, father: item }
-          } else if (item.relationship == "کاکا") {
+          } else if (item.relationship == t("studentPaternalUncle")) {
             studentRelations = { ...studentRelations, uncle: item }
-          } else if (item.relationship == "ماما") {
+          } else if (item.relationship == t("studentMaternalUncle")) {
             studentRelations = { ...studentRelations, aunt: item }
-          } else if (item.relationship == "برادر") {
+          } else if (item.relationship == t("brother")) {
             studentRelations = { ...studentRelations, brother: item }
           }
         })
@@ -128,7 +129,7 @@ const UpdateStudent = ({ setApiResponse }) => {
 
   const handleInputChangeValue = (e, inputName) => {
     switch (inputName) {
-      case "پدر.name": {
+      case t("father") + ".name": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -136,13 +137,13 @@ const UpdateStudent = ({ setApiResponse }) => {
             father: {
               ...globalState.studentRelations?.father,
               name: e.target.value,
-              relationship: "پدر",
+              relationship: t("father"),
             },
           },
         })
         break
       }
-      case "پدر.job": {
+      case t("father") + ".job": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -155,7 +156,7 @@ const UpdateStudent = ({ setApiResponse }) => {
         })
         break
       }
-      case "پدر.jobLocation": {
+      case t("father") + ".jobLocation": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -169,7 +170,7 @@ const UpdateStudent = ({ setApiResponse }) => {
         break
       }
 
-      case "پدر.phoneNumber": {
+      case t("father") + ".phoneNumber": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -182,7 +183,7 @@ const UpdateStudent = ({ setApiResponse }) => {
         })
         break
       }
-      case "کاکا.name": {
+      case t("studentPatenalUncle") + ".name": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -190,13 +191,13 @@ const UpdateStudent = ({ setApiResponse }) => {
             uncle: {
               ...globalState.studentRelations?.uncle,
               name: e.target.value,
-              relationship: "کاکا",
+              relationship: t("studentPatenalUncle"),
             },
           },
         })
         break
       }
-      case "کاکا.job": {
+      case t("studentPatenalUncle") + ".job": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -209,7 +210,7 @@ const UpdateStudent = ({ setApiResponse }) => {
         })
         break
       }
-      case "کاکا.jobLocation": {
+      case t("studentPatenalUncle") + ".jobLocation": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -222,7 +223,7 @@ const UpdateStudent = ({ setApiResponse }) => {
         })
         break
       }
-      case "کاکا.phoneNumber": {
+      case t("studentPatenalUncle") + ".phoneNumber": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -235,7 +236,7 @@ const UpdateStudent = ({ setApiResponse }) => {
         })
         break
       }
-      case "ماما.name": {
+      case t("studentMatenalUncle") + ".name": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -243,13 +244,13 @@ const UpdateStudent = ({ setApiResponse }) => {
             aunt: {
               ...globalState.studentRelations?.aunt,
               name: e.target.value,
-              relationship: "ماما",
+              relationship: t("studentMatenalUncle"),
             },
           },
         })
         break
       }
-      case "ماما.job": {
+      case t("studentMatenalUncle") + ".job": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -262,7 +263,7 @@ const UpdateStudent = ({ setApiResponse }) => {
         })
         break
       }
-      case "ماما.jobLocation": {
+      case t("studentMatenalUncle") + ".jobLocation": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -275,7 +276,7 @@ const UpdateStudent = ({ setApiResponse }) => {
         })
         break
       }
-      case "ماما.phoneNumber": {
+      case t("studentMatenalUncle") + ".phoneNumber": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -288,7 +289,7 @@ const UpdateStudent = ({ setApiResponse }) => {
         })
         break
       }
-      case "برادر.name": {
+      case t("brother") + ".name": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -296,13 +297,13 @@ const UpdateStudent = ({ setApiResponse }) => {
             brother: {
               ...globalState.studentRelations?.brother,
               name: e.target.value,
-              relationship: "برادر",
+              relationship: t("brother"),
             },
           },
         })
         break
       }
-      case "برادر.job": {
+      case t("brother") + ".job": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -315,7 +316,7 @@ const UpdateStudent = ({ setApiResponse }) => {
         })
         break
       }
-      case "برادر.jobLocation": {
+      case t("brother") + ".jobLocation": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -328,7 +329,7 @@ const UpdateStudent = ({ setApiResponse }) => {
         })
         break
       }
-      case "برادر.phoneNumber": {
+      case t("brother") + ".phoneNumber": {
         dispatch({
           type: actionTypes.ADD_STUDENT_RELATIONS,
           payload: {
@@ -347,7 +348,7 @@ const UpdateStudent = ({ setApiResponse }) => {
     <>
       <div className="updateStudent">
         <div className="update_detail">
-          <h1 className="text_align_center">بروزرسانی اطلاعات محصل</h1>
+          <h1 className="text_align_center">{t("updateStudentInformation")}</h1>
 
           {/* Personal Information */}
           <div className="form_details_student personal_info right-to-left">
@@ -370,16 +371,16 @@ const UpdateStudent = ({ setApiResponse }) => {
                 >
                   <div className="add_student_stepper_title">
                     <h3>
-                      {item.relationship === "کاکا" ||
-                      item.relationship === "ماما"
-                        ? item.relationship + "ی"
-                        : item.relationship}{" "}
-                      مـحـصل
+                      {item.relationship === t("studentPaternalUncle") ||
+                        item.relationship === t("studentMaternalUncle")
+                        ? t(item.relationship)
+                        : t(item.relationship)}{" "}
+                      {t("student")}
                     </h3>
                   </div>
                   <section className="build_boxes">
                     <div className="build_box">
-                      <label>نام</label>
+                      <label>{t("name")}</label>
                       <input
                         type="text"
                         value={item.name}
@@ -389,7 +390,7 @@ const UpdateStudent = ({ setApiResponse }) => {
                       />
                     </div>
                     <div className="build_box">
-                      <label>وظیفه</label>
+                      <label>{t("duty")}</label>
                       <input
                         type="text"
                         value={item.job}
@@ -399,7 +400,7 @@ const UpdateStudent = ({ setApiResponse }) => {
                       />
                     </div>
                     <div className="build_box">
-                      <label>محل وظیفه</label>
+                      <label>{t("dutyLocation")}</label>
                       <input
                         type="text"
                         value={item.jobLocation}
@@ -412,7 +413,7 @@ const UpdateStudent = ({ setApiResponse }) => {
                       />
                     </div>
                     <div className="build_box">
-                      <label>شماره تماس</label>
+                      <label>{t("contactNumber")}</label>
                       <input
                         type="tel"
                         id="phone"
@@ -435,7 +436,7 @@ const UpdateStudent = ({ setApiResponse }) => {
         </div>
       </div>
       <div className="text_align_center" style={{ paddingTop: "1rem" }}>
-        <Button text={"بروزرسانی اطلاعات"} onClick={sendInformationToAPI} />
+        <Button text={t("updateInformation")} onClick={sendInformationToAPI} />
       </div>
     </>
   )

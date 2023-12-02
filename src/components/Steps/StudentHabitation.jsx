@@ -2,6 +2,7 @@ import React from "react"
 import { useStateValue } from "../../context/StateProvider"
 import "./Steps.css"
 import { actionTypes } from "../../context/reducer"
+import { t } from "i18next"
 
 export const StudentHabitation = () => {
   const [
@@ -138,11 +139,11 @@ export const StudentHabitation = () => {
   return (
     <div className="form_details_student student_habitation left-to-right">
       <div className="add_student_stepper_title">
-        <h3>مـعـلـومـات تـذکـره</h3>
+        <h3>{t("identificationInformation")}</h3>
       </div>
       <section className="build_boxes">
         <div className="build_box">
-          <label>جـلـد</label>
+          <label>{t("volume")}</label>
           <input
             type="number"
             value={studentIdenfication?.caseNumber}
@@ -152,7 +153,7 @@ export const StudentHabitation = () => {
         </div>
 
         <div className="build_box">
-          <label>صـفـحـه</label>
+          <label>{t("page")}</label>
           <input
             type="number"
             value={studentIdenfication?.pageNumber}
@@ -162,7 +163,7 @@ export const StudentHabitation = () => {
         </div>
 
         <div className="build_box">
-          <label>شـمـاره ثـبـت</label>
+          <label>{t("registrationNumber")}</label>
           <input
             type="number"
             value={studentIdenfication?.registrationNumber}
@@ -172,7 +173,7 @@ export const StudentHabitation = () => {
         </div>
 
         <div className="build_box">
-          <label>نـمـبر عـمـومـی</label>
+          <label>{t("generanNumber")}</label>
           <input
             type="number"
             value={studentIdenfication?.nationalId}
@@ -183,12 +184,12 @@ export const StudentHabitation = () => {
       </section>
 
       <div className="add_student_stepper_title">
-        <h3>سـکـونـت اصـلـی</h3>
+        <h3>{t("mainResidence")}</h3>
       </div>
 
       <section className="build_boxes build_boxes_three_boxes">
         <div className="build_box median_width">
-          <label>قـریـه / گـذر</label>
+          <label>{t("VillagePass")}</label>
           <input
             type="text"
             value={studentLocations?.previous?.villageOrQuarter}
@@ -198,7 +199,7 @@ export const StudentHabitation = () => {
           />
         </div>
         <div className="build_box">
-          <label>ولـسـوالـی / ناحیـه</label>
+          <label>{t("district")}</label>
           <input
             type="text"
             value={studentLocations?.previous?.district}
@@ -206,7 +207,7 @@ export const StudentHabitation = () => {
           />
         </div>
         <div className="build_box">
-          <label>ولایـت</label>
+          <label>{t("province")}</label>
           <input
             type="text"
             value={studentLocations?.previous?.city}
@@ -216,12 +217,12 @@ export const StudentHabitation = () => {
       </section>
 
       <div className="add_student_stepper_title">
-        <h3>سـکـونـت فعلی</h3>
+        <h3>{t("currentResidence")}</h3>
       </div>
 
       <section className="build_boxes build_boxes_three_boxes">
         <div className="build_box median_width">
-          <label>قـریـه / گـذر</label>
+          <label>{t("VillagePass")}</label>
           <input
             type="text"
             value={studentLocations?.current?.villageOrQuarter}
@@ -231,7 +232,7 @@ export const StudentHabitation = () => {
           />
         </div>
         <div className="build_box">
-          <label>ولـسـوالـی / ناحیـه</label>
+          <label>{t("district")}</label>
           <input
             type="text"
             value={studentLocations?.current?.district}
@@ -239,7 +240,7 @@ export const StudentHabitation = () => {
           />
         </div>
         <div className="build_box">
-          <label>ولایـت</label>
+          <label>{t("province")}</label>
           <input
             type="text"
             value={studentLocations?.current?.city}

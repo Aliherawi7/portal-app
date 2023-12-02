@@ -7,6 +7,7 @@ import { downloadFileFromApi } from "../../Utils/UtilsFunctions"
 import APIEndpoints from "../../constants/APIEndpoints"
 import { useStateValue } from "../../context/StateProvider"
 import ICONS from "../../constants/Icons"
+import { t } from "i18next"
 
 const Post = ({
   role,
@@ -46,14 +47,14 @@ const Post = ({
                 {author?.name} {author?.lastname}
               </p>
               <p style={{ fontSize: "10px" }}>
-                {timeSince(new Date(date))}
-                {isUpdated && " بروزرسانی شد"}
+                {timeSince(new Date(date))}{" "}
+                {isUpdated && t("updated")}
               </p>
             </div>
           </div>
           {role == Roles.ADMIN ? (
             // Post Settings on left of Posts
-            <div className="post_settings">
+            <div className="post_settings postion_relative">
               <span className="setting_icon cursor_pointer">
                 <i className={ICONS.threeDots}></i>
               </span>
@@ -62,7 +63,7 @@ const Post = ({
                   <li className="setting_option">
                     <Link to={"edit/" + id} className="setting_option_details">
                       <i className={ICONS.pencilSquare}></i>
-                      <span>ویرایش پست</span>
+                      <span>{t("editPost")}</span>
                     </Link>
                   </li>
                   {/* Handle Hide & UnHide of the Post */}
@@ -74,16 +75,16 @@ const Post = ({
                         <i className={ICONS.eyeFill}></i>
                       )}
                       {!isHide ? (
-                        <span>پنهان کردن</span>
+                        <span>{t("hide")}</span>
                       ) : (
-                        <span>نمایش دادن</span>
+                        <span>{t("show")}</span>
                       )}
                     </span>
                   </li>
                   <li className="setting_option" onClick={handleDelete}>
                     <span className="setting_option_details">
                       <i className={ICONS.trashFill}></i>
-                      <span>حذف پست</span>
+                      <span>{t("deletePost")}</span>
                     </span>
                   </li>
                 </ul>

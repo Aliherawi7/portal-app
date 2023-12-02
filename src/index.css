@@ -32,7 +32,7 @@
   --btn-bg-color: #6dc7f1f3;
   --show-color: #22222283;
   --input-box-color: #fff;
-  --light-dark: #fff
+  --light-dark: #fff;
 }
 
 .theme-dark {
@@ -61,7 +61,7 @@
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  direction: rtl;
+  /* direction: rtl; */
 }
 
 *::selection {
@@ -116,9 +116,7 @@ input {
 
 /* style for light | dark of react-quill */
 
-body {
-  direction: rtl;
-}
+
 
 a {
   color: var(--text-color);
@@ -148,6 +146,10 @@ a {
 
 .border_radius_8 {
   border-radius: 8px;
+}
+
+.border_radius_50 {
+  border-radius: 50%;
 }
 
 .background_color_transparent {
@@ -186,6 +188,14 @@ a {
 
 .flex_direction_column {
   flex-direction: column;
+}
+
+.postion_relative {
+  position: relative;
+}
+
+.postion_absolute {
+  position: absolute;
 }
 
 ul {

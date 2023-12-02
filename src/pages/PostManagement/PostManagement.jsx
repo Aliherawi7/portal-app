@@ -10,9 +10,14 @@ import BackDrop from "../../components/UI/BackDrop/BackDrop"
 import MessageBox from "../../components/UI/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
 import BtnTypes from "../../constants/BtnTypes"
+import { t } from "i18next"
+import { actionTypes } from "../../context/reducer"
+import { useNavigate } from "react-router-dom"
+import Button from "../../components/UI/Button/Button"
 
 const PostManagement = () => {
   useProtect({ roles: [Roles.ADMIN] })
+  const navigate = useNavigate()
   const [{ authentication }, dispatch] = useStateValue()
   const [posts, setPosts] = useState([])
   const [semester, setsemester] = useState()
@@ -104,13 +109,13 @@ const PostManagement = () => {
 
     let requestParam = ""
     if (semester) {
-      requestParam += `&semester=${semester == "همه" ? "%" : semester}`
+      requestParam += `&semester=${semester == "همه" || semester == "All" ? "%" : semester}`
     }
     if (department) {
-      requestParam += `&department=${department == "همه" ? "%" : department}`
+      requestParam += `&department=${department == "همه" || department == "All" ? "%" : department}`
     }
     if (feildOfStudy) {
-      requestParam += `&fieldOfStudy=${feildOfStudy == "همه" ? "%" : feildOfStudy
+      requestParam += `&fieldOfStudy=${feildOfStudy == "همه" || department == "All" ? "%" : feildOfStudy
         }`
     }
     setRequestParams(requestParam)
@@ -191,45 +196,54 @@ const PostManagement = () => {
 
   return (
     <div className="posts_management">
+      {/* add new student */}
+      <div className="students_add_new_student display_flex align_items_center justify_content_space_between">
+        <Button
+          text={t("newPost")}
+          onClick={() => {
+            navigate("/admin/newpost")
+          }}
+        />
+      </div>
       <div className="posts_management_tabHeader">
         <div className="posts_management_boxes">
           <div className="post_mana_box">
-            <label>پوهنحی</label>
+            <label>{t("fieldOfStudy")}</label>
             <select
               id="type"
               value={feildOfStudy}
               onChange={(e) => setfield(e)}
-              defaultValue="همه"
+              defaultValue={t("all")}
             >
-              <option>همه</option>
+              <option>{t("all")}</option>
               {fields.map((item) => {
                 return <option key={item.id}>{item.fieldName}</option>
               })}
             </select>
           </div>
           <div className="post_mana_box">
-            <label>دیپارتمنت</label>
+            <label>{t("department")}</label>
             <select
               id="type"
               value={department}
               onChange={(e) => setDep(e.target.value)}
-              defaultValue="همه"
+              defaultValue={t("all")}
             >
-              <option>همه</option>
+              <option>{t("all")}</option>
               {departments.map((item) => {
                 return <option key={item.id}>{item.departmentName}</option>
               })}
             </select>
           </div>
           <div className="post_mana_box">
-            <label>سمستر</label>
+            <label>{t("semester")}</label>
             <select
               id="type"
               value={semester}
               onChange={(e) => setsemester(e.target.value)}
-              defaultValue="همه"
+              defaultValue={t("all")}
             >
-              <option>همه</option>
+              <option>{t("all")}</option>
               {semesters.map((sem) => {
                 return <option>{sem}</option>
               })}
@@ -238,7 +252,7 @@ const PostManagement = () => {
         </div>
         <div className="posts_management_filter_btn">
           <button className="btn" onClick={handleFilterButton}>
-            فیلتر
+            {t("filter")}
           </button>
         </div>
       </div>
@@ -290,10 +304,10 @@ const PostManagement = () => {
             {!hasMore && (
               <div className="text_align_center">
                 <h5 className="text_color text_align_center">
-                  {posts.length > 0 ? "آخرین پست" : "پست های مورد نظر یافت نشد"}{" "}
+                  {posts.length > 0 ? t("lastPost") : t("postNotFound")}{" "}
                 </h5>
                 <h6 style={{ paddingTop: "10px" }}>
-                  تعداد کل پست ها {posts.length}
+                  {t("totalPosts")} {posts.length}
                 </h6>
               </div>
             )}
@@ -305,15 +319,15 @@ const PostManagement = () => {
           <MessageBox
             messageType="asking"
             firstBtn={{
-              btnText: "بلی",
+              btnText: t("yes"),
               btnType: BtnTypes.danger,
               onClick: handleDelete,
             }}
             secondBtn={{
-              btnText: "نخیر",
+              btnText: t("no"),
               onClick: () => setDeleteModal(false),
             }}
-            message={"برای حذف شدن پست از سیستم مطمئن هستید؟"}
+            message={t("postDeleteMessage")}
             iconType={ICONS.asking}
           />
         }
@@ -323,7 +337,7 @@ const PostManagement = () => {
           <MessageBox
             messageType="info"
             firstBtn={{
-              btnText: "تایید",
+              btnText: t("confirm"),
               onClick: () => setCompleteMsg({ show: false, msg: "" }),
             }}
             message={completeMsg.msg}

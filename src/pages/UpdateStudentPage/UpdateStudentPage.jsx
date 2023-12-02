@@ -5,6 +5,7 @@ import BackDrop from "../../components/UI/BackDrop/BackDrop"
 import MessageBox from "../../components/UI/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
 import { useNavigate } from "react-router-dom"
+import { t } from "i18next"
 
 const UpdateStudentPage = () => {
   const navigate = useNavigate()
@@ -21,7 +22,7 @@ const UpdateStudentPage = () => {
           <MessageBox
             messageType="info"
             firstBtn={{
-              btnText: "تایید",
+              btnText: t("confirm"),
               onClick: () => navigate("/admin/students"),
             }}
             message={apiResponse.message}

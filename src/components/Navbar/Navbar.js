@@ -7,6 +7,8 @@ import lowIcon from "../../assets/img/faculties/low-icon.png"
 import dentistryIcon from "../../assets/img/faculties/dentistry-icon.png"
 import ICONS from "../../constants/Icons"
 import APIEndpoints from "../../constants/APIEndpoints"
+
+import { t } from "i18next"
 const CustomeLinks = ({ to, children, ...props }) => {
   const resolvedPath = useResolvedPath(to)
   const isActive = useMatch({ path: resolvedPath.pathname, end: true })
@@ -20,13 +22,14 @@ const CustomeLinks = ({ to, children, ...props }) => {
   )
 }
 
-const Navbar = ({ activeNav, navActiveHandler }) => {
+const Navbar = () => {
   const [{ authentication }, dispatch] = useStateValue()
   const [activeFaculties, setActiveFaculties] = useState(false)
   const [activeAdminPanel, setActiveAdminPanel] = useState(false)
-
+  const [activeNav, setActiveNav] = useState(false)
   const facultiesHandler = () => setActiveFaculties(!activeFaculties)
   const adminPanelHandler = () => setActiveAdminPanel(!activeAdminPanel)
+  const navActiveHandler = () => setActiveNav(!activeNav)
 
   return (
     <div className={`navbar ${activeNav && "active_nav_right"}`}>
@@ -36,57 +39,25 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
           onClick={navActiveHandler}
         >
           {activeNav ? (
-            <i className={`${ICONS.chevronLeft} text_color cursor_pointer`}></i>
+            <i className={`${ICONS.list} text_color cursor_pointer`}></i>
           ) : (
             <i
-              className={`${ICONS.chevronRight} text_color cursor_pointer`}
+              className={`${ICONS.cross} text_color cursor_pointer`}
             ></i>
           )}
         </div>
       </div>
 
-      {authentication.isAuthenticated ? (
-        <Link
-          to={"/profile/" + authentication.userId}
-          className="nav_profile display_flex align_items_center justify_content_center flex_direction_column"
-        >
-          <div className="add_img_profile display_flex">
-            <img
-              src={authentication.imageUrl ? APIEndpoints.redirecter + authentication.imageUrl : "/public/img/favicon.png"}
-              className="input_profile_img display_flex"
-              alt="user_image"
-              crossOrigin="anonymous"
-            />
-          </div>
-          <h4 className="text_color">
-            {authentication.name} {authentication.lastname}
-          </h4>
-        </Link>
-      ) : (
-        <Link
-          to="/"
-          className="nav_profile display_flex align_items_center justify_content_center flex_direction_column"
-        >
-          <div className="add_img_profile">
-            <img
-              src={logo}
-              className="input_profile_img display_flex"
-              alt="user_image"
-            />
-          </div>
-        </Link>
-      )}
-
       <div className="navbar_menu">
         <ul className="navbar_content">
-          <CustomeLinks to="/" title="خانه">
+          <CustomeLinks to="/" title={t('home')}>
             <i className={ICONS.door}></i>
-            <span>خانه</span>
+            <span>{t('home')}</span>
           </CustomeLinks>
           {authentication?.roles?.includes("STUDENT") ? (
-            <CustomeLinks to="/posts" title="پست ها">
+            <CustomeLinks to="/posts" title={t('posts')}>
               <i className={ICONS.collection}></i>
-              <span>پست ها</span>
+              <span>{t('posts')}</span>
             </CustomeLinks>
           ) : null}
 
@@ -95,9 +66,11 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
             <div className="menu_container">
               <div className="navbar__title open__navbar display_flex">
                 <div className="navbar__item display_flex align_items_center">
-                  <i className={ICONS.mortarboard}></i>
-                  <span>پوهنــځی‌ها</span>
-                  <div style={{ paddingRight: "34px" }}>
+                  <div className="navbar_item_title display_flex align_items_center">
+                    <i className={ICONS.mortarboard}></i>
+                    <span>{t("fieldOfStudy")}</span>
+                  </div>
+                  <div >
                     {activeFaculties ? (
                       <i className={`${ICONS.chevronDown} btn_toggle`}></i>
                     ) : (
@@ -110,7 +83,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 type="checkbox"
                 onClick={facultiesHandler}
                 className="drop_menu_button outline_none cursor_pointer"
-                title="پوهنــځی‌ها"
+                title={t("fieldOfStudy")}
               />
               <ul className="navbar__dropdown">
                 <CustomeLinks to="faculties/0" title="کامپیوتر ساینس">
@@ -133,9 +106,11 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
             <div className="admin_menu menu_container">
               <div className="navbar__title open__navbar display_flex">
                 <div className="navbar__item display_flex align_items_center">
-                  <i className={ICONS.gear}></i>
-                  <span>ادمین پنل</span>
-                  <div style={{ paddingRight: "40px" }}>
+                  <div className="navbar_item_title display_flex align_items_center">
+                    <i className={ICONS.dashboard}></i>
+                    <span>{t("dashboard")}</span>
+                  </div>
+                  <div className="open_navbar_icon">
                     {activeAdminPanel ? (
                       <i className={`${ICONS.chevronDown} btn_toggle`}></i>
                     ) : (
@@ -148,32 +123,29 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
                 type="checkbox"
                 onClick={adminPanelHandler}
                 className="drop_menu_button outline_none cursor_pointer"
-                title="ادمین پنل"
+                title={t("dashboard")}
               />
               <ul className="navbar__dropdown admin_navbar__dropdown ">
-                <CustomeLinks to="/admin/students" title="محصلین">
+                <CustomeLinks to="/admin/students" title={t('students')}>
                   <i className={ICONS.people}></i>
-                  <span>محصلین</span>
+                  <span>{t('students')}</span>
                 </CustomeLinks>
-                <CustomeLinks to="/admin/newpost" title="محتوا جدید">
-                  <i className={ICONS.earmarkPlus}></i>
-                  <span>محتوای جدید</span>
-                </CustomeLinks>
-                <CustomeLinks to="/admin/post-management" title="مدیریت پست ها">
+
+                <CustomeLinks to="/admin/post-management" title={t("posts")}>
                   <i className={ICONS.files}></i>
-                  <span>مدیریت پست ها</span>
+                  <span>{t("posts")}</span>
                 </CustomeLinks>
-                <CustomeLinks to="/admin/teachers" title="اساتید">
+                <CustomeLinks to="/admin/teachers" title={t("teachers")}>
                   <i className={ICONS.peopleّّFill}></i>
-                  <span>اساتید</span>
+                  <span>{t('teachers')}</span>
                 </CustomeLinks>
-                <CustomeLinks to="/admin/attendance-sheet" title="حاضری ها">
+                <CustomeLinks to="/admin/attendance-sheet" title={t("attendances")}>
                   <i className={ICONS.calendar}></i>
-                  <span>حاضری ها</span>
+                  <span>{t("attendances")}</span>
                 </CustomeLinks>
-                <CustomeLinks to="/admin/timetable" title="تقسیم اوقات ها">
+                <CustomeLinks to="/admin/timetable" title={t("schedules")}>
                   <i className={ICONS.table}></i>
-                  <span>تقسیم اوقات ها</span>
+                  <span>{t("schedules")}</span>
                 </CustomeLinks>
               </ul>
             </div>
@@ -183,7 +155,7 @@ const Navbar = ({ activeNav, navActiveHandler }) => {
 
           <CustomeLinks to="/about" title="درباره">
             <i className={ICONS.building}></i>
-            <span>درباره</span>
+            <span>{t("about")}</span>
           </CustomeLinks>
         </ul>
       </div>

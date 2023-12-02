@@ -5,6 +5,7 @@ import { actionTypes } from "../../context/reducer"
 import avatar from "../../assets/img/profile_avatar.png"
 import ICONS from "../../constants/Icons"
 import APIEndpoints from "../../constants/APIEndpoints"
+import { t } from "i18next"
 
 export const PersonalInformation = ({ updatedMode = false }) => {
   const [{ studentImage, studentPersonalInfo }, dispatch] = useStateValue()
@@ -287,12 +288,12 @@ export const PersonalInformation = ({ updatedMode = false }) => {
 
       {/* Personal Information */}
       <div className="add_student_stepper_title">
-        <h3>مـعـلـومـات شـخصـی</h3>
+        <h3>{t("personalInformation")}</h3>
       </div>
       <div className="personal_info">
         <section className="build_boxes">
           <div className="build_box">
-            <label>نــام</label>
+            <label>{t("name")}</label>
             <input
               type="text"
               value={studentPersonalInfo?.name}
@@ -302,7 +303,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           </div>
 
           <div className="build_box">
-            <label>تــخلــص</label>
+            <label>{t("lastName")}</label>
             <input
               type="text"
               value={studentPersonalInfo?.lastName}
@@ -312,7 +313,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           </div>
 
           <div className="build_box">
-            <label>نــام پــدر</label>
+            <label>{t("fatherName")}</label>
             <input
               type="text"
               value={studentPersonalInfo?.fatherName}
@@ -322,7 +323,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           </div>
 
           <div className="build_box">
-            <label>نــام پــدرکــلان</label>
+            <label>{t("grandFatherName")}</label>
             <input
               type="text"
               value={studentPersonalInfo?.grandFatherName}
@@ -337,14 +338,14 @@ export const PersonalInformation = ({ updatedMode = false }) => {
             }`}
         >
           <div className="build_box">
-            <label>زبـان مــادری</label>
+            <label>{t("motherTongue")}</label>
             <select
               id="type"
               value={studentPersonalInfo?.motherTongue}
               onChange={(e) => handleInputChangeValue(e, "motherTongue")}
             >
               <option disabled selected>
-                زبـان مــادری
+                {t("motherTongue")}
               </option>
               <option>دری</option>
               <option>پشتو</option>
@@ -352,14 +353,14 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           </div>
 
           <div className="build_box">
-            <label>جـنسیت</label>
+            <label>{t("gender")}</label>
             <select
               id="type"
               value={studentPersonalInfo?.gender}
               onChange={(e) => handleInputChangeValue(e, "gender")}
             >
               <option disabled selected>
-                جـنسیت
+                {t("gender")}
               </option>
               <option>مرد</option>
               <option>زن</option>
@@ -367,14 +368,14 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           </div>
 
           <div className="build_box">
-            <label>حـالـت مـدنـی</label>
+            <label>{t("civilStatus")}</label>
             <select
               id="type"
               value={studentPersonalInfo?.maritalStatus}
               onChange={(e) => handleInputChangeValue(e, "maritalStatus")}
             >
               <option disabled selected>
-                حـالـت مـدنـی
+                {t("civilStatus")}
               </option>
               <option>مجرد</option>
               <option>متاهل</option>
@@ -384,7 +385,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           {updatedMode && (
             <>
               <div className="build_box">
-                <label>شــمــاره تــمــاس</label>
+                <label>{t("contactNumber")}</label>
                 <input
                   type="tel"
                   id="phone"
@@ -401,7 +402,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
 
         <section className="build_boxes build_boxes_three_boxes">
           <div className="build_box">
-            <label>تـاریـخ تــولــد</label>
+            <label>{t("birthDate")}</label>
             <input
               type="date"
               value={studentPersonalInfo?.dob}
@@ -412,7 +413,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           </div>
 
           <div className="build_box">
-            <label>مکـتب / دارالـعـلوم</label>
+            <label>{t("school")}</label>
             <input
               type="text"
               value={studentPersonalInfo?.highSchool}
@@ -422,7 +423,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           </div>
 
           <div className="build_box">
-            <label>سـال فـراغـت</label>
+            <label>{t("graduationYear")}</label>
             <input
               type="date"
               value={studentPersonalInfo?.schoolGraduationDate}
@@ -439,7 +440,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
           {!updatedMode && (
             <>
               <div className="build_box">
-                <label>شــمــاره تــمــاس</label>
+                <label>{t("contactNumber")}</label>
                 <input
                   type="tel"
                   id="phone"
@@ -452,7 +453,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
               </div>
 
               <div className="build_box email">
-                <label>ایــمـیـل</label>
+                <label>{t("email")}</label>
                 <input
                   type="email"
                   value={studentPersonalInfo?.email}
@@ -464,7 +465,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
               </div>
 
               <div className="build_box">
-                <label>رمـز حسـاب کـاربـری</label>
+                <label>{t("pass")}</label>
                 <input
                   type=""
                   value={studentPersonalInfo?.password}
@@ -478,14 +479,14 @@ export const PersonalInformation = ({ updatedMode = false }) => {
 
         <section className="build_boxes">
           <div className="build_box">
-            <label>رشـتـه تحـصیـلی</label>
+            <label>{t("fieldOfStudy")}</label>
             <select
               id="type"
               value={studentPersonalInfo?.fieldOfStudy}
               onChange={(e) => handleInputChangeValue(e, "fieldOfStudy")}
             >
               <option disabled selected>
-                رشـتـه تحـصیـلی
+                {t("fieldOfStudy")}
               </option>
               {fields.map((item) => {
                 return <option key={item.id}>{item.fieldName}</option>
@@ -493,14 +494,14 @@ export const PersonalInformation = ({ updatedMode = false }) => {
             </select>
           </div>
           <div className="build_box">
-            <label>دیـپـارتـمـنت</label>
+            <label>{t("department")}</label>
             <select
               id="type"
               value={studentPersonalInfo?.department}
               onChange={(e) => handleInputChangeValue(e, "department")}
             >
               <option selected disabled>
-                دیـپـارتـمـنت
+                {t("department")}
               </option>
               {departments.map((item) => {
                 return <option key={item.id}>{item.departmentName}</option>
@@ -508,14 +509,14 @@ export const PersonalInformation = ({ updatedMode = false }) => {
             </select>
           </div>
           <div className="post_box">
-            <label>سـمسـتر</label>
+            <label>{t("semester")}</label>
             <select
               id="type"
               value={studentPersonalInfo?.semester}
               onChange={(e) => handleInputChangeValue(e, "semester")}
             >
               <option selected disabled>
-                سـمسـتر
+                {t("semester")}
               </option>
               {semesters?.map((sem) => {
                 return <option key={sem}>{sem}</option>
@@ -523,7 +524,7 @@ export const PersonalInformation = ({ updatedMode = false }) => {
             </select>
           </div>
           <div className="build_box">
-            <label>سـال شـمولـیـت</label>
+            <label>{t("inclusionYear")}</label>
             <input
               type="date"
               value={studentPersonalInfo?.joinedDate}

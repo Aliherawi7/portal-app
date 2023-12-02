@@ -1,5 +1,6 @@
 import React from "react"
 import "./FormControl.css"
+import { t } from "i18next"
 
 const FormControl = ({ handleNextStep, currentStep, steps, isFinished }) => {
   return (
@@ -7,22 +8,22 @@ const FormControl = ({ handleNextStep, currentStep, steps, isFinished }) => {
       {/* back button */}
       {currentStep === steps.length - 1 && isFinished ? null : (
         <button onClick={() => handleNextStep("back")} className="back_btn btn">
-          بازگشت
+          {t("back")}
         </button>
       )}
 
       {/* next button */}
       {currentStep === steps.length - 2 ? (
         <button onClick={() => handleNextStep("next")} className="back_btn btn">
-          تایید و ارسال
+          {t("confirmAndSend")}
         </button>
       ) : currentStep === steps.length - 1 && isFinished ? (
         <button onClick={() => handleNextStep("next")} className="back_btn btn">
-          پایان
+          {t("finish")}
         </button>
       ) : currentStep < steps.length - 1 ? (
         <button onClick={() => handleNextStep("next")} className="back_btn btn">
-          بعدی
+          {t("next")}
         </button>
       ) : null}
     </div>

@@ -13,6 +13,7 @@ import useProtect from "../../Hooks/useProtect"
 import Roles from "../../constants/Roles"
 import { actionTypes } from "../../context/reducer"
 import APIEndpoints from "../../constants/APIEndpoints"
+import { t } from "i18next"
 
 const components = [
   PersonalInformation,
@@ -24,7 +25,8 @@ let counter = 0
 const AddStudent = () => {
   useProtect({ roles: [Roles.ADMIN] })
   const navigate = useNavigate()
-  const steps = ["معلومات شخصی", "تذکره و سکونت محصل", "اقارب محصل", "بخش آخر"]
+
+  const steps = [t("personalInformation"), t("locationAndIndentification"), t("studentRelations"), t("finalStep")]
   const [globalState, dispatch] = useStateValue()
   const [stepComponent, setStepComponent] = useState({
     component: components[counter],
@@ -69,7 +71,7 @@ const AddStudent = () => {
     if (!globalState?.studentImage?.file) {
       setApiResponse({
         isFinished: false,
-        message: "لطفا عکس محصل را وارد نمائید!",
+        message: t("addStudentImg"),
       })
       return
     }

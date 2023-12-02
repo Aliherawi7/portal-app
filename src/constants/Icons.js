@@ -37,6 +37,8 @@ const ICONS = {
   brightnessHigh: "bi bi-brightness-high",
   moon: "bi bi-moon",
   arrowUpShort: "bi bi-arrow-up-short",
+  arrowDown: 'bi bi-chevron-down',
+  list: "bi bi-list",
   fileEarmarkPdfFill: "bi bi-file-earmark-pdf-fill",
   fileEarmarkPlusFill: "bi bi-file-earmark-plus-fill",
   threeDots: "bi bi-three-dots",
@@ -51,7 +53,11 @@ const ICONS = {
   calendar: "bi bi-calendar",
   printer: "bi bi-printer",
   thick: "bi bi-check-lg",
-  cross: "bi bi-x"
+  cross: "bi bi-x",
+  translate: 'bi bi-translate',
+  dashboard: "bi bi-columns-gap",
+
+
 }
 
 export default ICONS

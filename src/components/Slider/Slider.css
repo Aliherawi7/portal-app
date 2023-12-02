@@ -135,11 +135,6 @@
 }
 
 @media (max-width: 480px) {
-  .navbar {
-    width: 65px;
-    border-right: 5px solid var(--gen-color);
-  }
-
   .slides .slide_title {
     font-size: 25px;
   }

@@ -57,8 +57,13 @@
   display: inline;
 }
 
-.btn i {
+.rtl .btn i {
   margin-left: 4px;
 }
+
+.ltr .btn i {
+  margin-right: 4px;
+}
+
 
 /* End Button */

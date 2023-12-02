@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./Student.css"
 import APIEndpoints from "../../constants/APIEndpoints"
+import { t } from "i18next"
 
 const Student = ({ studentInfo, customRef }) => {
   return (
@@ -22,11 +23,11 @@ const Student = ({ studentInfo, customRef }) => {
           <div className="student_university_info display_flex align_items_center justify_content_space_around border_radius_8">
             <p>
               <span>{studentInfo?.fieldStudy}</span>
-              <span>پوهنحی</span>
+              <span>{t("fieldOfStudy")}</span>
             </p>
             <p>
               <span>{studentInfo?.department}</span>
-              <span>دیپارتمنت</span>
+              <span>{t("department")}</span>
             </p>
           </div>
         </div>

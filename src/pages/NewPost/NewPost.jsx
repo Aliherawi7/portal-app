@@ -10,6 +10,7 @@ import BackDrop from "../../components/UI/BackDrop/BackDrop"
 import MessageBox from "../../components/UI/MessageBox/MessageBox"
 import ICONS from "../../constants/Icons"
 import APIEndpoints from "../../constants/APIEndpoints"
+import { t } from "i18next"
 
 const NewPost = () => {
   // this is for security purpose
@@ -150,26 +151,26 @@ const NewPost = () => {
               className={ICONS.fileEarmarkPlusFill}
               title="choose your photo"
             ></i>
-            <p>اضافه کردن فایل یا تصویر</p>
+            <p>{t("addFile")}</p>
           </label>
         </div>
       </div>
 
       <div className="share_post_on">
-        <h3>اشتراک گذاری در کجا</h3>
+        <h3>{t("shareWhere")}</h3>
         <div className="post_boxes display_grid">
           <div className="post_box box_shadow">
             <select
               id="type"
               onChange={(e) =>
-                setIsPublic(e.target.value == "صفحه اصلی" ? true : false)
+                setIsPublic(e.target.value == t("public") ? true : false)
               }
             >
               <option selected disabled>
-                موقعیت
+                {t("location")}
               </option>
-              <option>صفحه محصل</option>
-              <option>صفحه اصلی</option>
+              <option>{t("studentPage")}</option>
+              <option>{t("public")}</option>
             </select>
           </div>
           {!isPublic ? (
@@ -180,7 +181,7 @@ const NewPost = () => {
                   onChange={(e) => fieldOfStudeyInputHandling(e)}
                 >
                   <option disabled selected>
-                    پوهنحی
+                    {t("fieldOfStudy")}
                   </option>
                   {fields.map((item) => {
                     return <option key={item.id}>{item.fieldName}</option>
@@ -190,7 +191,7 @@ const NewPost = () => {
               <div className="post_box">
                 <select id="type" onChange={(e) => setDep(e.target.value)}>
                   <option selected disabled>
-                    دیپارتمنت
+                    {t("department")}
                   </option>
                   {departments.map((item) => {
                     return <option key={item.id}>{item.departmentName}</option>
@@ -200,7 +201,7 @@ const NewPost = () => {
               <div className="post_box">
                 <select id="type" onChange={(e) => setsemester(e.target.value)}>
                   <option selected disabled>
-                    سمستر
+                    {t("semeter")}
                   </option>
                   {semesters.map((sem) => {
                     return <option>{sem}</option>
@@ -217,7 +218,7 @@ const NewPost = () => {
           onClick={() => sendInfo("next")}
           className=" btn"
         >
-          ارسال
+          {t("send")}
         </button>
       </div>
       <BackDrop show={completeMsg.show}>
@@ -225,7 +226,7 @@ const NewPost = () => {
           <MessageBox
             messageType="info"
             firstBtn={{
-              btnText: "تایید",
+              btnText: t("confirm"),
               onClick: () => navigate("/admin/post-management"),
             }}
             message={completeMsg.msg}

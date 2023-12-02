@@ -1,6 +1,7 @@
 import React from "react"
 import "./Search.css"
 import ICONS from "../../constants/Icons"
+import { t } from "i18next"
 
 const Search = ({ value, onChange, handleSearchButton, placeHolder }) => {
   return (
@@ -13,7 +14,7 @@ const Search = ({ value, onChange, handleSearchButton, placeHolder }) => {
           onClick={handleSearchButton}
         >
           <i className={`${ICONS.search} search__icon`}></i>
-          <span>جستجو</span>
+          <span>{t("search")}</span>
         </button>
       </div>
     </form>

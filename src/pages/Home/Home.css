@@ -169,17 +169,8 @@ section {
   transform: scale(1.15);
 }
 
-/* Responsive */
-@media (max-width: 991px) {
-  .app .main {
-    margin: 0 100px 0 20px;
-  }
-}
-
 @media (max-width: 768px) {
   .elite_students .elite_stu {
     grid-template-columns: 1fr;
   }
 }
-
-@media (max-width: 480px) {}

@@ -1,6 +1,6 @@
 /* Post */
 .post {
-  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 var(--gen-bg-color);
+  box-shadow: 0 0px 6px 1px rgb(0 0 0 / 63%);
   border-radius: 6px;
   padding: 10px;
   position: relative;
@@ -48,7 +48,7 @@
   border-radius: 5px;
   width: 125px;
   position: absolute;
-  background-color: var(--gen-bg-color);
+  background-color: var(--light-dark);
   z-index: 100;
   font-size: 0.8rem;
   padding: 10px;
@@ -57,7 +57,7 @@
   transition: all 0.2s ease-in-out;
   transform-origin: top;
   top: 30px;
-  left: 10px;
+  left: -20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 

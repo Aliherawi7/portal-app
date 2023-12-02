@@ -3,6 +3,7 @@ import Post from "../../components/Post/Post"
 import Spinner from "../../components/UI/Loading/Spinner"
 import { useStateValue } from "../../context/StateProvider"
 import APIEndpoints from "../../constants/APIEndpoints"
+import { t } from "i18next"
 
 const Posts = () => {
   const [posts, setposts] = useState([])
@@ -33,8 +34,8 @@ const Posts = () => {
     setLoading(true)
     fetch(
       APIEndpoints.root +
-        APIEndpoints.posts.getAllPostsForStudent +
-        `?offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
+      APIEndpoints.posts.getAllPostsForStudent +
+      `?offset=${pagination.offset}&pageSize=${pagination.pageSize}`,
       {
         method: "GET",
         headers: { Authorization: "Bearer " + authentication.token },
@@ -93,8 +94,8 @@ const Posts = () => {
         {hasMore && <Spinner />}
         {!hasMore && (
           <div className="end_of_posts text_align_center">
-            <h5>آخرین پست</h5>
-            <h6>تعداد کل پست ها {posts.length}</h6>
+            <h5>{t("lastPost")}</h5>
+            <h6>{t("totalPosts")} {posts.length}</h6>
           </div>
         )}
       </section>

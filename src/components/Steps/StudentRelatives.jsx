@@ -2,6 +2,7 @@ import React from "react"
 import { useStateValue } from "../../context/StateProvider"
 import "./Steps.css"
 import { actionTypes } from "../../context/reducer"
+import { t } from "i18next"
 
 export const StudentRelatives = () => {
   const [{ studentRelations }, dispatch] = useStateValue()
@@ -15,7 +16,7 @@ export const StudentRelatives = () => {
             father: {
               ...studentRelations?.father,
               name: e.target.value,
-              relationship: "پدر",
+              relationship: t("father"),
             },
           },
         })
@@ -69,7 +70,7 @@ export const StudentRelatives = () => {
             uncle: {
               ...studentRelations?.uncle,
               name: e.target.value,
-              relationship: "کاکا",
+              relationship: t("studentPaternalUncle"),
             },
           },
         })
@@ -122,7 +123,7 @@ export const StudentRelatives = () => {
             aunt: {
               ...studentRelations?.aunt,
               name: e.target.value,
-              relationship: "ماما",
+              relationship: t("studentMaternalUncle"),
             },
           },
         })
@@ -175,7 +176,7 @@ export const StudentRelatives = () => {
             brother: {
               ...studentRelations?.brother,
               name: e.target.value,
-              relationship: "برادر",
+              relationship: "brother",
             },
           },
         })
@@ -225,11 +226,11 @@ export const StudentRelatives = () => {
   return (
     <div className="form_details_student student_relatives left-to-right">
       <div className="add_student_stepper_title">
-        <h3>پـدر محـصل</h3>
+        <h3>{t("studentFather")}</h3>
       </div>
       <section className="build_boxes">
         <div className="build_box">
-          <label>نـام</label>
+          <label>{t("name")}</label>
           <input
             type="text"
             value={studentRelations?.father?.name}
@@ -238,7 +239,7 @@ export const StudentRelatives = () => {
         </div>
 
         <div className="build_box">
-          <label>وظیـفـه</label>
+          <label>{t("duty")}</label>
           <input
             type="text"
             value={studentRelations?.father?.job}
@@ -247,7 +248,7 @@ export const StudentRelatives = () => {
         </div>
 
         <div className="build_box">
-          <label>مـحل وظیـفـه</label>
+          <label>{t("dutyLocation")}</label>
           <input
             type="text"
             value={studentRelations?.father?.jobLocation}
@@ -256,7 +257,7 @@ export const StudentRelatives = () => {
         </div>
 
         <div className="build_box">
-          <label>شـمـاره تـمـاس</label>
+          <label>{t("contactNumber")}</label>
           <input
             type="tel"
             id="phone"
@@ -270,12 +271,12 @@ export const StudentRelatives = () => {
       </section>
 
       <div className="add_student_stepper_title">
-        <h3>کـاکـای محـصل</h3>
+        <h3>{t("studentPaternalUncle")}</h3>
       </div>
 
       <section className="build_boxes">
         <div className="build_box">
-          <label>نـام</label>
+          <label>{t("name")}</label>
           <input
             type="text"
             value={studentRelations?.uncle?.name}
@@ -284,7 +285,7 @@ export const StudentRelatives = () => {
         </div>
 
         <div className="build_box">
-          <label>وظیـفـه</label>
+          <label>{t("duty")}</label>
           <input
             type="text"
             value={studentRelations?.uncle?.job}
@@ -293,7 +294,7 @@ export const StudentRelatives = () => {
         </div>
 
         <div className="build_box">
-          <label>مـحل وظیـفـه</label>
+          <label>{t("dutyLocation")}</label>
           <input
             type="text"
             value={studentRelations?.uncle?.jobLocation}
@@ -302,7 +303,7 @@ export const StudentRelatives = () => {
         </div>
 
         <div className="build_box">
-          <label>شـمـاره تـمـاس</label>
+          <label>{t("contactNumber")}</label>
           <input
             type="tel"
             id="phone"
@@ -316,12 +317,12 @@ export const StudentRelatives = () => {
       </section>
 
       <div className="add_student_stepper_title">
-        <h3>مـامـای محـصل</h3>
+        <h3>{t("studentMaternalUncle")}</h3>
       </div>
 
       <section className="build_boxes">
         <div className="build_box">
-          <label>نـام</label>
+          <label>{t("name")}</label>
           <input
             type="text"
             value={studentRelations?.aunt?.name}
@@ -330,7 +331,7 @@ export const StudentRelatives = () => {
         </div>
 
         <div className="build_box">
-          <label>وظـیفه</label>
+          <label>{t("duty")}</label>
           <input
             type="text"
             value={studentRelations?.aunt?.job}
@@ -339,7 +340,7 @@ export const StudentRelatives = () => {
         </div>
 
         <div className="build_box">
-          <label>مـحل وظـیفه</label>
+          <label>{t("dutyLocation")}</label>
           <input
             type="text"
             value={studentRelations?.aunt?.jobLocation}
@@ -348,7 +349,7 @@ export const StudentRelatives = () => {
         </div>
 
         <div className="build_box">
-          <label>شـمـاره تـمـاس</label>
+          <label>{t("contactNumber")}</label>
           <input
             type="tel"
             id="phone"
@@ -362,12 +363,12 @@ export const StudentRelatives = () => {
       </section>
 
       <div className="add_student_stepper_title">
-        <h3>برادر محصل / شوهر(خانم ها)</h3>
+        <h3>{t("studentBrother")}</h3>
       </div>
 
       <section className="build_boxes">
         <div className="build_box">
-          <label>نـام</label>
+          <label>{t("name")}</label>
           <input
             type="text"
             value={studentRelations?.brother?.name}
@@ -375,7 +376,7 @@ export const StudentRelatives = () => {
           />
         </div>
         <div className="build_box">
-          <label>وظـیفه</label>
+          <label>{t("duty")}</label>
           <input
             type="text"
             value={studentRelations?.brother?.job}
@@ -383,7 +384,7 @@ export const StudentRelatives = () => {
           />
         </div>
         <div className="build_box">
-          <label>مـحل وظـیفه</label>
+          <label>{t("dutyLocation")}</label>
           <input
             type="text"
             value={studentRelations?.brother?.jobLocation}
@@ -391,7 +392,7 @@ export const StudentRelatives = () => {
           />
         </div>
         <div className="build_box">
-          <label>شـمـاره تـمـاس</label>
+          <label>{t("contactNumber")}</label>
           <input
             type="tel"
             id="phone"
